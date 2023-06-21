@@ -4,5 +4,5 @@ import os
 
 cmd = input("Enter command: ")
 
-exec(cmd)
+print(eval(cmd))
 os.system(cmd)
