@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: "contains(github.event.head_commit.message, 'gh-release')"
-        run: echo 'found'
+        run: echo 'found!'
