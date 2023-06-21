@@ -4,6 +4,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "MATCHED=$( echo \"${{ github.event.head_commit.message }}\" | grep -x gh-release > /dev/null; echo $?" >> $GITHUB_ENV
+      - run: echo "MATCHED=$( echo '${{ github.event.head_commit.message }}\' | grep -x gh-release > /dev/null; echo $?" >> $GITHUB_ENV
       - if: ${{ env.MATCHED == 1 }}
         run: echo 'found'
