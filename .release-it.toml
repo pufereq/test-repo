@@ -6,8 +6,3 @@
 requireBranch = "main"
 commitMessage = "chore(release): ${version}"
 changelog = "cz changelog --dry-run --start-rev ${latestTag}"
-
-[github]
-release = true
-draft = true
-releaseName = "simulat ${version}"
