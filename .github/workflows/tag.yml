@@ -40,7 +40,7 @@ jobs:
           cache: npm
       - name: 📦 install commitizen and release-it
         run: |
-          pip install bump2version --break-system-packages
+          pip install commitizen --break-system-packages
           npm install -g release-it
       - name: 📝 bump version and release
         run: release-it ${{ github.event.inputs.version }}
