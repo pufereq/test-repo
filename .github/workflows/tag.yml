@@ -48,7 +48,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       - name: 📝 bump version
         run: |
-          cz changelog --incremental --file body.md --unreleased ${{ github.event.inputs.version }}
+          cz changelog --incremental --file-name body.md --unreleased ${{ github.event.inputs.version }}
           release-it ${{ github.event.inputs.version }}
       - name: create release
         uses: softprops/action-gh-release@v1
