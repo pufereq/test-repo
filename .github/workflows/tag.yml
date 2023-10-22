@@ -56,7 +56,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           name: simulat ${{ github.event.inputs.version }}
-          body: body.md
+          tag_name: ${{ github.event.inputs.version }}
+          body_path: body.md
           draft: true
       - name: ✅ done
         run: |
