@@ -47,13 +47,18 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       - name: 📝 bump version
-        run: release-it ${{ github.event.inputs.version }}
+        run: |
+          cz changelog --incremental --file body.md --unreleased ${{ github.event.inputs.version }}
+          release-it ${{ github.event.inputs.version }}
       - name: create release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          release_name: simulat ${{ github.event.inputs.version }}
+          name: simulat ${{ github.event.inputs.version }}
+          body: body.md
           draft: true
       - name: ✅ done
-        run: echo "Release created"
+        run: |
+          rm body.md
+          echo "Release created"
