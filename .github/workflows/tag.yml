@@ -42,7 +42,11 @@ jobs:
         run: |
           pip install commitizen --break-system-packages
           npm install -g release-it
-      - name: 📝 bump version and release
+      - name: configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: 📝 bump version
         run: release-it ${{ github.event.inputs.version }}
       - name: create release
         uses: softprops/action-gh-release@v1
