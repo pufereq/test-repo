@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 16
           cache: npm
-      - name: 📦 install commitizen and release-it
+      - name: 📦 install required utilities
         run: |
           pip install git-cliff --break-system-packages
           npm install -g release-it
