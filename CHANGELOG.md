@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.8.0-dev.1] - 2023-10-29
+
+### Bug Fixes
+
+- [`8ebe0c1`](https://github.com/pufereq/simulat/commit/8ebe0c19dfcf505c87ae642e99aa46dce9453deb) Add -t switch
+
+### Miscellaneous Tasks
+
+- [`829e233`](https://github.com/pufereq/simulat/commit/829e23396ef73ba4d787a73bceb06e73f1f4e131) Change name of step
+
+## [0.7.0] - 2023-10-29
 
 ### Bug Fixes
 
@@ -10,6 +20,7 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous Tasks
 
+- [`b278e7e`](https://github.com/pufereq/simulat/commit/b278e7e38ee2a511edbc51804c7c9261fdd44ff8) **release**: 0.7.0
 - [`714ec9f`](https://github.com/pufereq/simulat/commit/714ec9f9f5b41371bc41cbbf36f4ea3e0d212349) Add changelog.md when bumping
 
 ## [0.5.0] - 2023-10-29
