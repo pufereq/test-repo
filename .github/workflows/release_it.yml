@@ -50,7 +50,7 @@ jobs:
         run: |
           pip install git-cliff --break-system-packages
           npm install -g release-it
-          npm install --save-dev @release-it/bumper
+          npm install --no-save @release-it/bumper
       - name: configure git
         run: |
           git config --global user.name "github-actions[bot]"
@@ -58,7 +58,7 @@ jobs:
       - name: 📝 bump version
         run: |
           git-cliff -s header -t ${{ github.event.inputs.version }} -u -o body.md
-          release-it ${{ github.event.inputs.version }} --plugins.@release-it/bumper.out='data/default/config.yaml'
+          release-it ${{ github.event.inputs.version }} --plugins.@release-it/bumper.out='data/config.yaml'
       - name: create release
         uses: softprops/action-gh-release@v1
         env:
