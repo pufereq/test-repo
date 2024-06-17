@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.0-dev.2] - 2024-06-17
+
+### Miscellaneous Tasks
+
+- [`41a0bf4`](https://github.com/pufereq/simulat/commit/41a0bf4976175dd7705ef5c2ab573f53debbe654) **release**: 0.8.0-dev.2
+
 ## [0.8.0-dev.1] - 2023-10-29
 
 ### Bug Fixes
