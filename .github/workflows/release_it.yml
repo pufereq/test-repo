@@ -5,7 +5,15 @@ on:
     inputs:
       version:
         type: string
-        description: 'new version'
+        description: 'new tag number'
+        required: true
+      pre_release:
+        type: boolean
+        description: 'pre-release?'
+        required: true
+      description:
+        type: string
+        description: 'version description'
         required: true
 
 
@@ -49,19 +57,26 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       - name: 📝 bump version
         run: |
-          #cz changelog --file-name body.md --start-rev $(git describe --tags --abbrev=0) --unreleased ${{ github.event.inputs.version }}
           git-cliff -s header -t ${{ github.event.inputs.version }} -u -o body.md
-          release-it ${{ github.event.inputs.version }} --plugins.@release-it/bumper.out='data/config.yaml'
+          release-it ${{ github.event.inputs.version }} --plugins.@release-it/bumper.out='data/default/config.yaml'
       - name: create release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          name: simulat ${{ github.event.inputs.version }}
+          name: simulat ${{ github.event.inputs.version }} - ${{ github.event.inputs.description}}
           tag_name: ${{ github.event.inputs.version }}
           body_path: body.md
-          draft: true
-      - name: ✅ done
+          prerelease: ${{ github.event.inputs.pre_release }}
+          discussion_category_name: 'Announcements'
+      - name: 🧹 cleanup
         run: |
           rm body.md
-          echo "Release created"
+      - name: 📤 merge into develop
+        run: |
+          git checkout develop
+          git merge main --no-ff
+          git push origin develop
+      - name: ✅ done
+        run: echo "done"
+
