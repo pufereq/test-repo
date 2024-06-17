@@ -42,6 +42,7 @@ jobs:
         run: |
           pip install git-cliff --break-system-packages
           npm install -g release-it
+          npm install --save-dev @release-it/bumper
       - name: configure git
         run: |
           git config --global user.name "github-actions[bot]"
@@ -50,7 +51,7 @@ jobs:
         run: |
           #cz changelog --file-name body.md --start-rev $(git describe --tags --abbrev=0) --unreleased ${{ github.event.inputs.version }}
           git-cliff -s header -t ${{ github.event.inputs.version }} -u -o body.md
-          release-it ${{ github.event.inputs.version }}
+          release-it ${{ github.event.inputs.version }} --plugins.@release-it/bumper.out='data/config.yaml'
       - name: create release
         uses: softprops/action-gh-release@v1
         env:
