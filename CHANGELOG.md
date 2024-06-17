@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Miscellaneous Tasks
 
+- [`3bad2fb`](https://github.com/pufereq/simulat/commit/3bad2fbe788349fc9e8e61a736ae57854704ea42) **release**: 0.8.0-dev.1
 - [`829e233`](https://github.com/pufereq/simulat/commit/829e23396ef73ba4d787a73bceb06e73f1f4e131) Change name of step
 
 ## [0.7.0] - 2023-10-29
