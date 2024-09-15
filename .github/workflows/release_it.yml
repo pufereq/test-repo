@@ -15,8 +15,12 @@ on:
         type: string
         description: 'version description'
         required: true
-
-
+      test:
+        type: choice
+        options:
+        - 1f
+        - 2f
+        required: false
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
